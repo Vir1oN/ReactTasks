@@ -5,8 +5,10 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    withRouter
 } from "react-router-dom";
+import AsyncPost from "./AsyncPost";
 
 class AllPosts extends Component {
     state = {posts: []}
@@ -19,12 +21,15 @@ class AllPosts extends Component {
 
     render() {
         let {posts} = this.state;
+        const {match: {url: currentUrl}} = this.props;
+
         return (
             <div>
                 <hr/>
                     <Switch>
-                        <Route path={'/posts/:id'} render={(props) => {
-                            return 'To be continued...'
+                        <Route path={currentUrl + '/:id'} render={(props) => {
+                            const {id} = props.match.params;
+                            return <AsyncPost id = {id} key = {id}/>
                         }}/>
                     </Switch>
                 <hr/>
@@ -35,4 +40,4 @@ class AllPosts extends Component {
     }
 }
 
-export default AllPosts;
+export default withRouter(AllPosts);

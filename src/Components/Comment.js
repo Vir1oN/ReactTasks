@@ -7,12 +7,12 @@ import {
     withRouter
 } from "react-router-dom";
 
-class Post extends Component {
+class Comment extends Component {
     render() {
         let {item, match: {url: currentUrl}} = this.props;
         return (
             <div>
-                <p>User#{item.userId}: {item.title} <Link to={currentUrl + `/${item.id}`}> Pin </Link></p>
+                <p>Post#{item.postId}: {item.name}-{item.email} <Link to={currentUrl + `/${item.id}`}> Pin </Link></p>
                 <p>{item.body}</p>
                 <hr/>
             </div>
@@ -20,4 +20,4 @@ class Post extends Component {
     }
 }
 
-export default withRouter(Post);
+export default withRouter(Comment);

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PostService from "./Services/PostService";
 import AllPosts from "./Components/AllPosts";
 import {
     BrowserRouter as Router,
@@ -7,6 +6,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import AllComments from "./Components/AllComments";
 
 class App extends Component {
 
@@ -16,10 +16,13 @@ class App extends Component {
             <Router>
                 <div>
                     <Link to={'/posts'}>Posts</Link>
+                    <br/>
+                    <Link to={'/comments'}>Comments</Link>
                 </div>
 
                 <Switch>
                     <Route path={'/posts'} render={() => <AllPosts/>}/>
+                    <Route path={'/comments'} render={() => <AllComments/>}/>
                 </Switch>
             </Router>
 
