@@ -1,0 +1,112 @@
+.user {
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid grey;
+    background-color: white;
+    font-family: "Calibri Light";
+    font-size: 25px;
+    color: black;
+}
+
+.users {
+    display: flex;
+    flex-direction: row;
+}
+
+.aka {
+    font-style: italic;
+}
+
+.all-users {
+    width:50%;
+    margin: 10px 50px 10px 10px;
+}
+
+.user-details {
+    color: black;
+    display: none;
+    width: 40%;
+    background-color: white;
+    margin: 10px 50px 10px 10px;
+}
+
+.details-btn {
+    height: 40px;
+    width: 70px;
+    background-color: #7160ff;
+    border-radius: 4px;
+    border: 1px solid blue;
+    font-size: 20px;
+    font-family: "Calibri Light";
+    transition-duration: 0.4s;
+}
+
+.details-btn:hover {
+    background-color: #897bff;
+    color: white;
+}
+
+.post-btn {
+    height: 40px;
+    width: 70px;
+    background-color: #1ae936;
+    border-radius: 4px;
+    border: 1px solid green;
+    font-size: 20px;
+    font-family: "Calibri Light";
+    transition-duration: 0.4s;
+}
+
+.post-btn:hover {
+    background-color: #2cfc48;
+    color: white;
+}
+
+.details {
+    margin-right: 10px;
+}
+
+.details-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.user-details {
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: white;
+    font-family: "Calibri Light";
+    font-size: 25px;
+    color: black;
+}
+
+.user-details h1 {
+    margin: 0;
+}
+
+.details-par{
+    margin: 30px 0 30px 0;
+}
+
+.bold {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.user-details hr {
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+h3 {
+    margin: 5px 0 0 0;
+    text-align: center;
+}
+
+
