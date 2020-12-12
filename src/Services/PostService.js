@@ -5,7 +5,8 @@ export default class PostService {
         return await fetch(this.url).then(value => value.json());
     }
 
-    async getPostById(id) {
-        return await fetch(this.url + `/${id}`).then(value => value.json());
+    async getPostsByUserId(id) {
+        let allPosts = await this.getAllPosts();
+        return allPosts.filter((post) => post.userId === id);
     }
 }
