@@ -1,20 +1,31 @@
 import React, {Component} from 'react';
-
+import User from "./Components/User";
 
 class App extends Component {
   myForm = React.createRef();
-  myInput = React.createRef();
-  state = {inputValue: ''};
+  state = {inputValue: '', users: []};
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then((json) => {
+              this.setState({users: json});
+            }
+        );
+  }
 
   render() {
-    this.myInput.current && console.log(this.myInput.current.value);
+    let {inputValue, users} = this.state;
     return (
         <div>
           <form action={'/savedata'} onSubmit={this.send} ref={this.myForm}>
-            <input value = {this.state.inputValue} type='number' onInput={this.commitState} ref={this.myInput}/>
+            <input value = {this.state.inputValue} type='number' onInput={this.commitState}/>
             <button>send</button>
           </form>
 
+          <div>
+            {inputValue && <User item = { users.find(user => user.id === +inputValue)} key = {inputValue}/>}
+          </div>
         </div>
     );
   }
