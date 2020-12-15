@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  myForm = React.createRef();
+  myInput = React.createRef();
+  state = {inputValue: ''};
+
+  render() {
+    this.myInput.current && console.log(this.myInput.current.value);
+    return (
+        <div>
+          <form action={'/savedata'} onSubmit={this.send} ref={this.myForm}>
+            <input value = {this.state.inputValue} type='number' onInput={this.commitState} ref={this.myInput}/>
+            <button>send</button>
+          </form>
+
+        </div>
+    );
+  }
+
+  send = (e) => {
+    e.preventDefault();
+    // console.log(this.myForm.current[0].value);
+    console.log(e.target.children[0].value);
+
+  };
+
+  commitState = (e) => {
+    this.setState({inputValue: e.target.value});
+    // console.log(this.state.inputValue);
+  };
 }
 
 export default App;
